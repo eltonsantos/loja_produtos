@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <th>Produto</th>
+    <th>Preço unitário</th>
+    <th>Quantidade</th>
+  </thead>
+  <tbody>
+    <% carrinho_atual.itens.each do |produto| %>
+      <% item = carrinho_atual.encontrar_item_carrinho(produto) %>
+      <tr>
+        <td><%= produto.nome %></td>
+        <td><%= number_to_currency produto.preco %></td>
+        <td><%= item.quantidade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Confirmar dados</h3>
+
+<p>Implementar endereços</p>

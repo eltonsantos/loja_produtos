@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :usuarios
   resources :pessoas
   resources :enderecos
-  
+  resources :pedidos
+
   # Rota para adicionar produto ao carrinho
   resources :produtos do
     member do
@@ -10,12 +11,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :pedidos
-
   # Rota para conta
   namespace :conta do
     resources :pedidos
   end
+
+  # No lugar da rota ficar itens_carrinho, com esse recurso ficará apenas itens
+  resources :itens, controller: "itens_carrinho"
 
   # Rota para carrinho
   resources :carrinhos do
@@ -24,9 +26,6 @@ Rails.application.routes.draw do
       delete :limpar
     end
   end
-
-  # No lugar da rota ficar itens_carrinho, com esse recurso ficará apenas itens
-  resources :itens, controller: "itens_carrinho"
 
   root 'produtos#index'
 

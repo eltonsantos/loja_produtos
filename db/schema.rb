@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20160215024716) do
   create_table "itens_carrinho", force: :cascade do |t|
     t.integer  "carrinho_id"
     t.integer  "produto_id"
-    t.integer  "quantidade"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "quantidade",  default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "itens_carrinho", ["carrinho_id"], name: "index_itens_carrinho_on_carrinho_id"
@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 20160215024716) do
 
   create_table "pedidos", force: :cascade do |t|
     t.integer  "pessoa_id"
-    t.integer  "total"
+    t.integer  "total",      default: 0
     t.string   "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "pedidos", ["pessoa_id"], name: "index_pedidos_on_pessoa_id"

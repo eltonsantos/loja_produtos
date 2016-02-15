@@ -3,7 +3,7 @@ class CreateItensCarrinho < ActiveRecord::Migration
     create_table :itens_carrinho do |t|
       t.references :carrinho, index: true, foreign_key: true
       t.references :produto, index: true, foreign_key: true
-      t.integer :quantidade
+      t.integer :quantidade, default: 1
 
       t.timestamps null: false
     end

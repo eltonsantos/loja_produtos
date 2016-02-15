@@ -15,5 +15,10 @@
   <%= @produto.preco %>
 </p>
 
-<%= link_to 'Adicionar ao carrinho', '#' %> |
+<% if @produto.qtd_estoque > 0%>
+  <%= link_to 'Adicionar ao carrinho', adicionar_ao_carrinho_produto_path(@produto), method: :post %> |
+<% else %>
+  <p>Fora de estoque</p>
+<% end %>
+
 <%= link_to 'Back', produtos_path %>
