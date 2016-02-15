@@ -6,4 +6,5 @@ class Usuario < ActiveRecord::Base
 
   has_many :pessoas
   has_many :pedidos, through: :pessoas
+
 end
