@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Produtos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Qtd estoque</th>
+      <th>Preco</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td>
+          <%= link_to produto_path(produto) do %>
+            <%= produto.nome %>
+          <% end %>
+        </td>
+        <td><%= produto.qtd_estoque %></td>
+        <td><%= produto.preco %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
