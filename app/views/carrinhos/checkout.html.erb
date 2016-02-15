@@ -18,4 +18,11 @@
 
 <h3>Confirmar dados</h3>
 
-<p>Implementar endereços</p>
+<%= form_for @pedido, url: {action: "index"} do |f| %>
+  <%= f.fields_for :enderecos do |e| %>
+    <%= e.text_field :cep %><br />
+  <% end %>
+
+  <%= f.button "Gerar Pedido", data: {disable_with: "Gerando..."} %>
+
+<% end %>
