@@ -5,4 +5,5 @@ class Usuario < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pessoas
+  has_many :pedidos, through: :pessoas
 end
