@@ -5,7 +5,10 @@ class PedidosController < ApplicationController
   def create
     @pedido = current_usuario.pedidos.build(pedido_params)
     if @pedido.save
-      flash[:notice] = "Tudo ok"
+      @pedido.construir_cache_item_carrinho(carrinho_atual)
+      @pedido.calcular_total!(carrinho_atual)
+      carrinho_atual.limpar!
+      #OrdemDeServico.new(carrinho_atual, @pedido).encomendar_pedido!
       redirect_to pedido_path(@pedido.token)
     else
       render "carrinho/checkout"
@@ -14,6 +17,7 @@ class PedidosController < ApplicationController
 
   # Visualizar pedido
   def show
+    # PRECISO PASSAR O PRODUTO TAMBÉM
     @pedido = Pedido.find_by_token(params[:id])
     @itens_pedido = @pedido.itens
   end

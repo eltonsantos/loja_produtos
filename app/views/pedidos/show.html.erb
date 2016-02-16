@@ -1,19 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Pessoa:</strong>
-  <%= @pedido.pessoa %>
-</p>
+<h3>Detalhes do pedido</h3>
 
-<p>
-  <strong>Total:</strong>
-  <%= @pedido.total %>
-</p>
+<table>
+  <thead>
+    <th>Produto</th>
+    <th>Preço unitário</th>
+    <th>Quantidade</th>
+  </thead>
+  <tbody>
+    <% @itens_pedido.each do |item_pedido, produto| %>
+      <tr>
+        <td>PEGAR O NOME DO PRODUTO</td>
+        <td><%= number_to_currency item_pedido.preco %></td>
+        <td><%= item_pedido.quantidade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
-  <strong>Token:</strong>
-  <%= @pedido.token %>
-</p>
+<span>
+  <br />
+  <font color="red">Total <%= number_to_currency @pedido.total %></font>
+  <br /><br />
+</span>
 
-<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
-<%= link_to 'Back', pedidos_path %>
+<hr />
+
+<table>
+  <thead>
+    <th>Endereço</th>
+    <th>Tipo de endereço</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Aqui ficará o endereço</td>
+      <td>Tipo de cobrança</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3>Forma de pagamento</h3>

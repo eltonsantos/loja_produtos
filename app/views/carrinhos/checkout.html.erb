@@ -1,3 +1,5 @@
+<h3>Meu pedido</h3>
+
 <table>
   <thead>
     <th>Produto</th>
@@ -18,10 +20,48 @@
 
 <h3>Confirmar dados</h3>
 
-<%= form_for @pedido, url: {action: "index"} do |f| %>
+1 - PEGAR O ID DA PESSOA
+<br />
+2 - PEGAR O ENDEREÇO DA PESSOA QUE TA REGISTRADA
+<br />
+
+<%= form_for @pedido do |f| %>
   <%= f.fields_for :enderecos do |e| %>
-    <%= e.text_field :cep %><br />
+    <div class="field">
+      <%= e.label :cep %><br>
+      <%= e.text_field :cep %>
+    </div>
+    <div class="field">
+      <%= e.label :rua %><br>
+      <%= e.text_field :rua %>
+    </div>
+    <div class="field">
+      <%= e.label :bairro %><br>
+      <%= e.text_field :bairro %>
+    </div>
+    <div class="field">
+      <%= e.label :cidade %><br>
+      <%= e.text_field :cidade %>
+    </div>
+    <div class="field">
+      <%= e.label :estado %><br>
+      <%= e.text_field :estado %>
+    </div>
+    <div class="field">
+      <%= e.label :numero %><br>
+      <%= e.number_field :numero %>
+    </div>
+    <div class="field">
+      <%= e.label :complemento %><br>
+      <%= e.text_field :complemento %>
+    </div>
+    <div class="field">
+      <%= e.label :tipo_endereco %><br>
+      <%= e.text_field :tipo_endereco %>
+    </div>
   <% end %>
+
+  <br />
 
   <%= f.button "Gerar Pedido", data: {disable_with: "Gerando..."} %>
 
