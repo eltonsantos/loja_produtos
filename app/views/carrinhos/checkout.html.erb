@@ -57,7 +57,7 @@
     </div>
     <div class="field">
       <%= e.label :tipo_endereco %><br>
-      <%= e.text_field :tipo_endereco %>
+      <%= e.collection_select :tipo_endereco, Endereco.all, :id, :tipo_endereco %>
     </div>
   <% end %>
 

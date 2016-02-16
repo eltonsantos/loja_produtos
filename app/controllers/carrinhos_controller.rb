@@ -1,7 +1,7 @@
 class CarrinhosController < ApplicationController
 
   before_action :authenticate_usuario!, only: [:checkout]
-  
+
   def checkout
     @pedido = current_usuario.pedidos.build
   end
