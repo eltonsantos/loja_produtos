@@ -41,11 +41,11 @@
   </div>
   <div class="field">
     <%= f.label :tipo_endereco %><br>
-    <%= f.text_field :tipo_endereco %>
+    <%= f.select :tipo_endereco, options_for_select(['Entrega', 'Cobrança'], @endereco.tipo_endereco) %>
   </div>
   <div class="field">
     <%= f.label :pessoa_id %><br>
-    <%= f.text_field :pessoa_id %>
+    <%= f.collection_select :pessoa_id, Pessoa.all, :id, :nome, prompt: "Selecione" %>
   </div>
   <div class="actions">
     <%= f.submit %>

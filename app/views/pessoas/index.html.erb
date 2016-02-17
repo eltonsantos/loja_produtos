@@ -23,7 +23,7 @@
         <td><%= pessoa.telefone %></td>
         <td><%= pessoa.data_nascimento %></td>
         <td><%= pessoa.sexo %></td>
-        <td><%= pessoa.usuario %></td>
+        <td><%= pessoa.usuario.email %></td>
         <td><%= link_to 'Show', pessoa %></td>
         <td><%= link_to 'Edit', edit_pessoa_path(pessoa) %></td>
         <td><%= link_to 'Destroy', pessoa, method: :delete, data: { confirm: 'Are you sure?' } %></td>

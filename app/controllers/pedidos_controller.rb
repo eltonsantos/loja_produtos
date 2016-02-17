@@ -3,7 +3,7 @@ class PedidosController < ApplicationController
 
   # Criar pedido
   def create
-    @pedido = current_usuario.pedidos.build(pedido_params)
+    @pedido = current_usuario.pessoa.pedidos.build(pedido_params)
     if @pedido.save
       @pedido.construir_cache_item_carrinho(carrinho_atual)
       @pedido.calcular_total!(carrinho_atual)

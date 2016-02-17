@@ -29,7 +29,7 @@
         <td><%= endereco.numero %></td>
         <td><%= endereco.complemento %></td>
         <td><%= endereco.tipo_endereco %></td>
-        <td><%= endereco.pessoa %></td>
+        <td><%= endereco.pessoa.nome %></td>
         <td><%= link_to 'Show', endereco %></td>
         <td><%= link_to 'Edit', edit_endereco_path(endereco) %></td>
         <td><%= link_to 'Destroy', endereco, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -11,7 +11,7 @@
   <tbody>
     <% @itens_pedido.each do |item_pedido| %>
       <tr>
-        <td><%= item_pedido.produto.nome %></td>
+        <td></td>
         <td><%= number_to_currency item_pedido.preco %></td>
         <td><%= item_pedido.quantidade %></td>
       </tr>
@@ -34,7 +34,14 @@
   </thead>
   <tbody>
     <tr>
-      <td>Aqui ficará o endereço</td>
+      <td>
+        Rua: 
+        <br />CEP:
+        <br />Número:
+        <br />Complemento:
+        <br />Cidade:
+        <br />Estado:
+      </td>
       <td>Tipo de cobrança</td>
     </tr>
   </tbody>

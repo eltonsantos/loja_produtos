@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :usuario_id %><br>
-    <%= f.text_field :usuario_id %>
+    <%= f.collection_select :usuario_id, Usuario.all, :id, :email, prompt: "Selecione" %>
   </div>
   <div class="actions">
     <%= f.submit %>
