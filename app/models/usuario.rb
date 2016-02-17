@@ -7,4 +7,6 @@ class Usuario < ActiveRecord::Base
   has_one :pessoa
   has_many :pedidos, through: :pessoa
 
+  accepts_nested_attributes_for :pessoa
+
 end
