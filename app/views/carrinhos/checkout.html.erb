@@ -24,9 +24,8 @@
 <br />
 2 - PEGAR O ENDEREÇO DA PESSOA QUE TA REGISTRADA
 <br />
-
 <%= form_for @pedido do |f| %>
-  <%= f.fields_for :enderecos do |e| %>
+  <%= f.fields_for @pedido.pessoa.enderecos.where(tipo_endereco: 'Entrega').first do |e| %>
     <div class="field">
       <%= e.label :cep %><br>
       <%= e.text_field :cep %>

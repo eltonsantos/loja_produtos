@@ -4,7 +4,7 @@ class Usuario < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :pessoas
-  has_many :pedidos, through: :pessoas
+  has_one :pessoa
+  has_many :pedidos, through: :pessoa
 
 end
