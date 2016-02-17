@@ -9,9 +9,9 @@
     <th>Quantidade</th>
   </thead>
   <tbody>
-    <% @itens_pedido.each do |item_pedido, produto| %>
+    <% @itens_pedido.each do |item_pedido| %>
       <tr>
-        <td>PEGAR O NOME DO PRODUTO</td>
+        <td><%= item_pedido.produto.nome %></td>
         <td><%= number_to_currency item_pedido.preco %></td>
         <td><%= item_pedido.quantidade %></td>
       </tr>
