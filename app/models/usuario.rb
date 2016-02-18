@@ -9,4 +9,9 @@ class Usuario < ActiveRecord::Base
 
   accepts_nested_attributes_for :pessoa
 
+  def with_pessoa
+    self.pessoa = Pessoa.new
+    self
+  end
+
 end

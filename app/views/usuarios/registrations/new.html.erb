@@ -1,6 +1,6 @@
 <h2>Cadastrar</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for [resource_name, resource.with_pessoa], url: registration_path(resource_name) do |f| %>
   <%= devise_error_messages! %>
 
   <h4>Usuário</h4>
@@ -47,12 +47,47 @@
       <%= p.text_field :sexo %>
     </div>
 
-  <% end %>
+    <h4>Endereço</h4>
+
+    <%= p.fields_for :endereco do |e| %>
+
+      <div class="field">
+        <%= e.label :cep %><br>
+        <%= e.text_field :cep %>
+      </div>
+      <div class="field">
+        <%= e.label :rua %><br>
+        <%= e.text_field :rua %>
+      </div>
+      <div class="field">
+        <%= e.label :bairro %><br>
+        <%= e.text_field :bairro %>
+      </div>
+      <div class="field">
+        <%= e.label :cidade %><br>
+        <%= e.text_field :cidade %>
+      </div>
+      <div class="field">
+        <%= e.label :estado %><br>
+        <%= e.text_field :estado %>
+      </div>
+      <div class="field">
+        <%= e.label :numero %><br>
+        <%= e.number_field :numero %>
+      </div>
+      <div class="field">
+        <%= e.label :complemento %><br>
+        <%= e.text_field :complemento %>
+      </div>
+
+    <% end %><!-- Fim do form endereco -->
+
+  <% end %><!-- Fim do form pessoa -->
 
   <div class="actions">
     <%= f.submit "Cadastrar" %>
   </div>
 
-<% end %>
+<% end %><!-- Fim do form usuario -->
 
 <%= render "usuarios/shared/links" %>
