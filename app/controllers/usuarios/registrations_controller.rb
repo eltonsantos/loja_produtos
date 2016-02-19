@@ -12,7 +12,8 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_sign_up_params
-    attributes = { pessoa_attributes: [:nome, :cpf, :telefone, :data_nascimento, :sexo] }
+    attributes = { pessoa_attributes: [:nome, :cpf, :telefone, :data_nascimento, :sexo,
+                  enderecos_attributes: [:cep, :rua, :bairro, :cidade, :estado, :numero, :complemento]] }
     devise_parameter_sanitizer.for(:sign_up) << attributes
   end
 end

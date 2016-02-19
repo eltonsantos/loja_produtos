@@ -14,4 +14,9 @@ class Usuario < ActiveRecord::Base
     self
   end
 
+  def with_endereco
+    self.pessoa.enderecos << Endereco.new
+    self
+  end
+
 end

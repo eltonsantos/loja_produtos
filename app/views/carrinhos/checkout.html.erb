@@ -20,8 +20,13 @@
 
 <h3>Confirmar dados</h3>
 
+
+
 <%= form_for @pedido do |f| %>
-  <%= f.fields_for @pedido.pessoa.enderecos.where(tipo_endereco: 'Entrega').first do |e| %>
+  
+  <h3>Endereco entrega</h3>
+
+  <%= f.fields_for :endereco_entrega, @pedido.pessoa.enderecos.first do |e| %>
     <div class="field">
       <%= e.label :cep %><br>
       <%= e.text_field :cep %>
@@ -51,8 +56,45 @@
       <%= e.text_field :complemento %>
     </div>
     <div class="field">
-      <%= e.label :tipo_endereco %><br>
-      <%= e.collection_select :tipo_endereco, Endereco.all, :id, :tipo_endereco %>
+      
+    </div>
+  <% end %>
+
+
+   <br />
+   <h3>Endereco cobranca</h3>
+
+  <%= f.fields_for :endereco_cobranca, @pedido.pessoa.enderecos.first do |e| %>
+    <div class="field">
+      <%= e.label :cep %><br>
+      <%= e.text_field :cep %>
+    </div>
+    <div class="field">
+      <%= e.label :rua %><br>
+      <%= e.text_field :rua %>
+    </div>
+    <div class="field">
+      <%= e.label :bairro %><br>
+      <%= e.text_field :bairro %>
+    </div>
+    <div class="field">
+      <%= e.label :cidade %><br>
+      <%= e.text_field :cidade %>
+    </div>
+    <div class="field">
+      <%= e.label :estado %><br>
+      <%= e.text_field :estado %>
+    </div>
+    <div class="field">
+      <%= e.label :numero %><br>
+      <%= e.number_field :numero %>
+    </div>
+    <div class="field">
+      <%= e.label :complemento %><br>
+      <%= e.text_field :complemento %>
+    </div>
+    <div class="field">
+
     </div>
   <% end %>
 

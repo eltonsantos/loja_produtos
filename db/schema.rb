@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215024716) do
+ActiveRecord::Schema.define(version: 20160219011823) do
 
   create_table "carrinhos", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 20160215024716) do
     t.integer  "numero"
     t.string   "complemento"
     t.string   "tipo_endereco"
-    t.integer  "pessoa_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "enderecavel_id"
+    t.string   "enderecavel_type"
   end
 
-  add_index "enderecos", ["pessoa_id"], name: "index_enderecos_on_pessoa_id"
+  add_index "enderecos", ["enderecavel_type", "enderecavel_id"], name: "index_enderecos_on_enderecavel_type_and_enderecavel_id"
 
   create_table "itens_carrinho", force: :cascade do |t|
     t.integer  "carrinho_id"

@@ -25,6 +25,10 @@ class PedidosController < ApplicationController
   private
 
     def pedido_params
-      params.require(:pedido).permit(:pessoa_id)
+      params.require(:pedido).permit(:pessoa_id,
+        endereco_entrega_attributes: [:cep, :rua, :bairro, :cidade, :estado,
+          :numero, :complemento, :tipo_endereco],
+        endereco_cobranca_attributes: [:cep, :rua, :bairro, :cidade, :estado,
+          :numero, :complemento, :tipo_endereco])
     end
 end
