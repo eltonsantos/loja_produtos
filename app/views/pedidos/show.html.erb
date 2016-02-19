@@ -27,25 +27,14 @@
 
 <hr />
 
-<table>
-  <thead>
-    <th>Endereço</th>
-    <th>Tipo de endereço</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        Rua:
-        <br />CEP:
-        <br />Número:
-        <br />Complemento:
-        <br />Cidade:
-        <br />Estado:
-      </td>
-      <td>Tipo de cobrança</td>
-    </tr>
-  </tbody>
-</table>
+<h4>Endereço</h4>
+<p>Rua: <%= @pedido.pessoa.enderecos.first.rua %></p>
+<p>CEP: <%= @pedido.pessoa.enderecos.first.cep %></p>
+<p>Bairro: <%= @pedido.pessoa.enderecos.first.bairro %></p>
+<p>Cidade: <%= @pedido.pessoa.enderecos.first.cidade %></p>
+<p>Estado: <%= @pedido.pessoa.enderecos.first.estado %></p>
+<p>Número: <%= @pedido.pessoa.enderecos.first.numero %></p>
+<p>Complemento: <%= @pedido.pessoa.enderecos.first.complemento %></p>
 
 <hr />
 

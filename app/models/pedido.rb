@@ -1,6 +1,7 @@
 class Pedido < ActiveRecord::Base
   belongs_to :pessoa
-  
+
+  # Configurando o poliomorfismo
   has_one :endereco_cobranca, -> { where( tipo_endereco: "Cobrança" ) }, class_name: "Endereco", as: :enderecavel
   has_one :endereco_entrega, -> { where( tipo_endereco: "Entrega") }, class_name: "Endereco", as: :enderecavel
 
