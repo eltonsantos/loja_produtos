@@ -19,7 +19,7 @@ class Pedido < ActiveRecord::Base
   def construir_cache_item_carrinho(carrinho)
     carrinho.itens.each do |item_carrinho|
       item = itens.build
-      item.produto.nome = item_carrinho.nome
+      item.produto = item_carrinho
       item.quantidade = carrinho.encontrar_item_carrinho(item_carrinho).quantidade
       item.preco = item_carrinho.preco
       item.save
