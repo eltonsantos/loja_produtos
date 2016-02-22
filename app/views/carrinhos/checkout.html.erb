@@ -20,8 +20,6 @@
 
 <h3>Confirmar dados</h3>
 
-
-
 <%= form_for @pedido do |f| %>
   
   <h3>Endereco entrega</h3>
@@ -60,9 +58,8 @@
     </div>
   <% end %>
 
-
-   <br />
-   <h3>Endereco cobranca</h3>
+  <br />
+  <h3>Endereco cobranca</h3>
 
   <%= f.fields_for :endereco_cobranca, @pedido.pessoa.enderecos.first do |e| %>
     <div class="field">

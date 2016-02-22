@@ -1,7 +1,7 @@
 class Pedido < ActiveRecord::Base
   belongs_to :pessoa
 
-  # Configurando o poliomorfismo
+  # Configurando o polimorfismo
   has_one :endereco_cobranca, -> { where( tipo_endereco: "Cobrança" ) }, class_name: "Endereco", as: :enderecavel
   has_one :endereco_entrega, -> { where( tipo_endereco: "Entrega") }, class_name: "Endereco", as: :enderecavel
 
@@ -19,7 +19,7 @@ class Pedido < ActiveRecord::Base
   def construir_cache_item_carrinho(carrinho)
     carrinho.itens.each do |item_carrinho|
       item = itens.build
-      item.produto.nome = item_carrinho.nome
+      item.produto = item_carrinho
       item.quantidade = carrinho.encontrar_item_carrinho(item_carrinho).quantidade
       item.preco = item_carrinho.preco
       item.save
